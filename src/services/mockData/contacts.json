@@ -1,0 +1,57 @@
+[
+  {
+    "Id": 1,
+    "name": "Sarah Johnson",
+    "email": "sarah.johnson@techcorp.com",
+    "phone": "+1 (555) 123-4567",
+    "company": "TechCorp Solutions",
+    "position": "VP of Engineering",
+    "createdAt": "2024-01-15T10:30:00Z",
+    "lastContactedAt": "2024-01-20T14:15:00Z",
+    "tags": ["enterprise", "technical", "decision-maker"]
+  },
+  {
+    "Id": 2,
+    "name": "Michael Chen",
+    "email": "m.chen@startupflow.io",
+    "phone": "+1 (555) 987-6543",
+    "company": "StartupFlow",
+    "position": "Founder & CEO",
+    "createdAt": "2024-01-10T09:00:00Z",
+    "lastContactedAt": "2024-01-22T16:30:00Z",
+    "tags": ["startup", "founder", "high-value"]
+  },
+  {
+    "Id": 3,
+    "name": "Emily Rodriguez",
+    "email": "emily.r@marketingpro.com",
+    "phone": "+1 (555) 456-7890",
+    "company": "MarketingPro Agency",
+    "position": "Marketing Director",
+    "createdAt": "2024-01-18T11:45:00Z",
+    "lastContactedAt": "2024-01-21T10:00:00Z",
+    "tags": ["agency", "marketing", "recurring"]
+  },
+  {
+    "Id": 4,
+    "name": "David Thompson",
+    "email": "david@globaltech.com",
+    "phone": "+1 (555) 321-0987",
+    "company": "GlobalTech Industries",
+    "position": "CTO",
+    "createdAt": "2024-01-12T15:20:00Z",
+    "lastContactedAt": "2024-01-19T13:45:00Z",
+    "tags": ["enterprise", "technical", "long-term"]
+  },
+  {
+    "Id": 5,
+    "name": "Lisa Park",
+    "email": "lisa.park@innovatelab.com",
+    "phone": "+1 (555) 654-3210",
+    "company": "InnovateLab",
+    "position": "Product Manager",
+    "createdAt": "2024-01-14T08:15:00Z",
+    "lastContactedAt": "2024-01-23T09:30:00Z",
+    "tags": ["product", "innovation", "collaboration"]
+  }
+]

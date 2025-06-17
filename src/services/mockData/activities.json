@@ -1,0 +1,66 @@
+[
+  {
+    "Id": 1,
+    "contactId": 1,
+    "type": "call",
+    "description": "Initial discovery call to understand their CRM needs and current pain points",
+    "timestamp": "2024-01-20T14:15:00Z",
+    "dealId": 1
+  },
+  {
+    "Id": 2,
+    "contactId": 2,
+    "type": "email",
+    "description": "Sent proposal document with pricing details and implementation timeline",
+    "timestamp": "2024-01-22T16:30:00Z",
+    "dealId": 2
+  },
+  {
+    "Id": 3,
+    "contactId": 3,
+    "type": "meeting",
+    "description": "Product demo session showcasing marketing automation features",
+    "timestamp": "2024-01-21T10:00:00Z",
+    "dealId": 3
+  },
+  {
+    "Id": 4,
+    "contactId": 4,
+    "type": "call",
+    "description": "Follow-up call to discuss technical requirements and integration possibilities",
+    "timestamp": "2024-01-19T13:45:00Z",
+    "dealId": 4
+  },
+  {
+    "Id": 5,
+    "contactId": 5,
+    "type": "meeting",
+    "description": "Contract signing meeting - deal successfully closed!",
+    "timestamp": "2024-01-23T09:30:00Z",
+    "dealId": 5
+  },
+  {
+    "Id": 6,
+    "contactId": 1,
+    "type": "email",
+    "description": "Sent quarterly check-in email to explore expansion opportunities",
+    "timestamp": "2024-01-18T11:00:00Z",
+    "dealId": 6
+  },
+  {
+    "Id": 7,
+    "contactId": 2,
+    "type": "call",
+    "description": "Quick check-in call to address any concerns before final decision",
+    "timestamp": "2024-01-21T15:30:00Z",
+    "dealId": 2
+  },
+  {
+    "Id": 8,
+    "contactId": 3,
+    "type": "email",
+    "description": "Shared case studies from similar agency implementations",
+    "timestamp": "2024-01-20T09:15:00Z",
+    "dealId": 3
+  }
+]
