@@ -81,13 +81,13 @@ const Deals = () => {
   const filterAndSortDeals = () => {
     let filtered = [...deals];
 
-    // Filter by search query
+// Filter by search query
     if (searchQuery.trim()) {
       filtered = filtered.filter(deal =>
-        deal.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        deal.Name?.toLowerCase().includes(searchQuery.toLowerCase()) ||
         deal.notes?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        getContactForDeal(deal.contactId)?.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        getContactForDeal(deal.contactId)?.company.toLowerCase().includes(searchQuery.toLowerCase())
+        getContactForDeal(deal.contact_id)?.Name?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        getContactForDeal(deal.contact_id)?.company?.toLowerCase().includes(searchQuery.toLowerCase())
       );
     }
 
@@ -97,9 +97,22 @@ const Deals = () => {
     }
 
     // Sort deals
-    filtered.sort((a, b) => {
-      let aValue = a[sortBy];
-      let bValue = b[sortBy];
+filtered.sort((a, b) => {
+      let aValue, bValue;
+      
+      if (sortBy === 'title') {
+        aValue = a.Name;
+        bValue = b.Name;
+      } else if (sortBy === 'createdAt') {
+        aValue = a.CreatedOn;
+        bValue = b.CreatedOn;
+      } else if (sortBy === 'expectedCloseDate') {
+        aValue = a.expected_close_date;
+        bValue = b.expected_close_date;
+      } else {
+        aValue = a[sortBy];
+        bValue = b[sortBy];
+      }
 
       if (sortBy === 'createdAt' || sortBy === 'expectedCloseDate') {
         aValue = new Date(aValue);
@@ -117,7 +130,7 @@ const Deals = () => {
     setFilteredDeals(filtered);
   };
 
-  const getContactForDeal = (contactId) => {
+const getContactForDeal = (contactId) => {
     return contacts.find(contact => contact.Id === contactId);
   };
 
@@ -349,7 +362,7 @@ const Deals = () => {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {filteredDeals.map((deal) => {
-            const contact = getContactForDeal(deal.contactId);
+const contact = getContactForDeal(deal.contact_id);
             return (
               <motion.div key={deal.Id} variants={cardVariants}>
                 <Card hover className="h-full">
@@ -358,10 +371,10 @@ const Deals = () => {
                     <div className="flex items-start justify-between">
                       <div className="flex-1 min-w-0">
                         <h3 className="font-medium text-gray-900 truncate">
-                          {deal.title}
+                          {deal.Name}
                         </h3>
                         <p className="text-sm text-gray-500 mt-1">
-                          {contact?.name} • {contact?.company}
+                          {contact?.Name} • {contact?.company}
                         </p>
                       </div>
                       <div className="flex items-center space-x-1 ml-2">
@@ -397,8 +410,8 @@ const Deals = () => {
                       <Badge variant={getStageColor(deal.stage)}>
                         {deal.stage}
                       </Badge>
-                      <div className="text-sm text-gray-500">
-                        {format(new Date(deal.expectedCloseDate), 'MMM d, yyyy')}
+<div className="text-sm text-gray-500">
+                        {format(new Date(deal.expected_close_date), 'MMM d, yyyy')}
                       </div>
                     </div>
 
@@ -478,8 +491,8 @@ const Deals = () => {
           <h3 className="text-lg font-medium text-gray-900 mb-2">
             Delete Deal
           </h3>
-          <p className="text-gray-600 mb-6">
-            Are you sure you want to delete <strong>{dealToDelete?.title}</strong>? 
+<p className="text-gray-600 mb-6">
+            Are you sure you want to delete <strong>{dealToDelete?.Name}</strong>? 
             This action cannot be undone.
           </p>
           <div className="flex justify-center space-x-3">

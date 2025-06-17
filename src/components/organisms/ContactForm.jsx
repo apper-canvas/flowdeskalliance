@@ -6,13 +6,13 @@ import FormField from '@/components/molecules/FormField';
 import { contactService } from '@/services';
 
 const ContactForm = ({ contact, onSubmit, onCancel }) => {
-  const [formData, setFormData] = useState({
-    name: contact?.name || '',
+const [formData, setFormData] = useState({
+    name: contact?.Name || '',
     email: contact?.email || '',
     phone: contact?.phone || '',
     company: contact?.company || '',
     position: contact?.position || '',
-    tags: contact?.tags ? contact.tags.join(', ') : ''
+    tags: contact?.Tags ? contact.Tags.split(',').map(tag => tag.trim()).join(', ') : ''
   });
   
   const [errors, setErrors] = useState({});

@@ -77,7 +77,7 @@ const PipelineBoard = ({ deals, contacts, onEdit, onDelete, onRefresh }) => {
     return deals.filter(deal => deal.stage === stage);
   };
 
-  const getContactForDeal = (dealContactId) => {
+const getContactForDeal = (dealContactId) => {
     return contacts.find(contact => contact.Id === dealContactId);
   };
 
@@ -197,10 +197,10 @@ const PipelineBoard = ({ deals, contacts, onEdit, onDelete, onRefresh }) => {
                 >
                   <AnimatePresence>
                     {stageDeals.map((deal) => (
-                      <SortableDealCard
+<SortableDealCard
                         key={deal.Id}
                         deal={deal}
-                        contact={getContactForDeal(deal.contactId)}
+                        contact={getContactForDeal(deal.contact_id)}
                         onEdit={onEdit}
                         onDelete={onDelete}
                       />
@@ -224,9 +224,9 @@ const PipelineBoard = ({ deals, contacts, onEdit, onDelete, onRefresh }) => {
 
       <DragOverlay>
         {activeId && draggedDeal ? (
-          <DealCard
+<DealCard
             deal={draggedDeal}
-            contact={getContactForDeal(draggedDeal.contactId)}
+            contact={getContactForDeal(draggedDeal.contact_id)}
             onEdit={() => {}}
             onDelete={() => {}}
             isDragging={true}

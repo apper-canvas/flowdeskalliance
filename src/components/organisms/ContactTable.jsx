@@ -18,9 +18,22 @@ const ContactTable = ({ contacts, onEdit, onDelete, onView }) => {
     }
   };
 
-  const sortedContacts = [...contacts].sort((a, b) => {
-    let aValue = a[sortField];
-    let bValue = b[sortField];
+const sortedContacts = [...contacts].sort((a, b) => {
+    let aValue, bValue;
+    
+    if (sortField === 'name') {
+      aValue = a.Name;
+      bValue = b.Name;
+    } else if (sortField === 'createdAt') {
+      aValue = a.CreatedOn;
+      bValue = b.CreatedOn;
+    } else if (sortField === 'lastContactedAt') {
+      aValue = a.last_contacted_at;
+      bValue = b.last_contacted_at;
+    } else {
+      aValue = a[sortField];
+      bValue = b[sortField];
+    }
 
     if (sortField === 'createdAt' || sortField === 'lastContactedAt') {
       aValue = new Date(aValue || 0);
@@ -115,15 +128,15 @@ const ContactTable = ({ contacts, onEdit, onDelete, onView }) => {
                 <td className="px-6 py-4 whitespace-nowrap">
                   <div className="flex items-center">
                     <div className="flex-shrink-0 h-10 w-10">
-                      <div className="h-10 w-10 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+<div className="h-10 w-10 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
                         <span className="text-sm font-medium text-white">
-                          {contact.name.split(' ').map(n => n[0]).join('').toUpperCase()}
+                          {contact.Name.split(' ').map(n => n[0]).join('').toUpperCase()}
                         </span>
                       </div>
                     </div>
                     <div className="ml-4">
                       <div className="text-sm font-medium text-gray-900">
-                        {contact.name}
+                        {contact.Name}
                       </div>
                     </div>
                   </div>
@@ -138,22 +151,22 @@ const ContactTable = ({ contacts, onEdit, onDelete, onView }) => {
                   <div className="text-sm text-gray-900">{contact.position}</div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
+<td className="px-6 py-4 whitespace-nowrap">
                   <div className="flex flex-wrap gap-1">
-                    {contact.tags?.slice(0, 2).map(tag => (
-                      <Badge key={tag} variant="primary" size="sm">
-                        {tag}
+                    {contact.Tags && contact.Tags.split(',').slice(0, 2).map(tag => (
+                      <Badge key={tag.trim()} variant="primary" size="sm">
+                        {tag.trim()}
                       </Badge>
                     ))}
-                    {contact.tags?.length > 2 && (
+                    {contact.Tags && contact.Tags.split(',').length > 2 && (
                       <Badge variant="default" size="sm">
-                        +{contact.tags.length - 2}
+                        +{contact.Tags.split(',').length - 2}
                       </Badge>
                     )}
-                  </div>
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  {contact.lastContactedAt 
-                    ? format(new Date(contact.lastContactedAt), 'MMM d, yyyy')
+<td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  {contact.last_contacted_at 
+                    ? format(new Date(contact.last_contacted_at), 'MMM d, yyyy')
                     : 'Never'
                   }
                 </td>

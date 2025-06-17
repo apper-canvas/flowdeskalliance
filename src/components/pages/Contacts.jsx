@@ -52,13 +52,16 @@ const Contacts = () => {
       return;
     }
 
-    const filtered = contacts.filter(contact =>
-      contact.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      contact.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      contact.company.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      contact.position.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      contact.tags?.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()))
-    );
+const filtered = contacts.filter(contact => {
+      const tags = contact.Tags ? contact.Tags.split(',').map(tag => tag.trim()) : [];
+      return (
+        contact.Name?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        contact.email?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        contact.company?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        contact.position?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()))
+      );
+    });
     setFilteredContacts(filtered);
   };
 

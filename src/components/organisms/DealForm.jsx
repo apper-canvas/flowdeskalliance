@@ -6,13 +6,13 @@ import FormField from '@/components/molecules/FormField';
 import { dealService } from '@/services';
 
 const DealForm = ({ deal, contacts = [], onSubmit, onCancel }) => {
-  const [formData, setFormData] = useState({
-    title: deal?.title || '',
+const [formData, setFormData] = useState({
+    title: deal?.Name || '',
     value: deal?.value || '',
     stage: deal?.stage || 'Lead',
-    contactId: deal?.contactId || '',
+    contactId: deal?.contact_id || '',
     probability: deal?.probability || 50,
-    expectedCloseDate: deal?.expectedCloseDate ? new Date(deal.expectedCloseDate).toISOString().split('T')[0] : '',
+    expectedCloseDate: deal?.expected_close_date ? new Date(deal.expected_close_date).toISOString().split('T')[0] : '',
     notes: deal?.notes || ''
   });
   
