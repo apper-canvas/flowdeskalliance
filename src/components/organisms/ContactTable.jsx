@@ -150,7 +150,6 @@ const sortedContacts = [...contacts].sort((a, b) => {
                 <td className="px-6 py-4 whitespace-nowrap">
                   <div className="text-sm text-gray-900">{contact.position}</div>
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap">
 <td className="px-6 py-4 whitespace-nowrap">
                   <div className="flex flex-wrap gap-1">
                     {contact.Tags && contact.Tags.split(',').slice(0, 2).map(tag => (
@@ -163,6 +162,7 @@ const sortedContacts = [...contacts].sort((a, b) => {
                         +{contact.Tags.split(',').length - 2}
                       </Badge>
                     )}
+                  </div>
                 </td>
 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                   {contact.last_contacted_at 
